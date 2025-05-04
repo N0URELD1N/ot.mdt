@@ -1,0 +1,90 @@
+<script>
+  if (localStorage.getItem("mdtAuth") !== "granted") {
+    window.location.href = "login.html";
+  }
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تقديم تقرير MDT</title>
+
+
+
+
+<link rel="stylesheet" href="styles.css">
+
+  <script src="script.js"></script>
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>نموذج تقديم تقرير MDT</h1>
+
+    <div class="section">
+      <label>اسم العسكري:</label>
+      <input type="text" id="reporterName" required />
+    </div>
+
+    <div class="section">
+      <label>حالة المهمة:</label>
+      <select id="missionStatus">
+        <option>جارية</option>
+        <option>ناجحة</option>
+        <option>فاشلة</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label>نوع الحالة:</label>
+      <select id="caseType" onchange="toggleCustomType()">
+        <option>جنائية</option>
+        <option>مرورية</option>
+        <option>آخر</option>
+      </select>
+      <input type="text" id="customCaseType" placeholder="أدخل نوع الحالة" style="display: none; margin-top: 10px;" />
+    </div>
+
+    <div class="section">
+      <label>اسم الشخص / رمزه الدولي:</label>
+      <input type="text" id="personName" required />
+    </div>
+
+<!-- الرمز الدولي 
+
+<div class="section">
+  <label>الرمز الدولي للشخص:</label>
+  <input type="text" id="personCode" placeholder="مثال: ID-9981" />
+</div>
+
+-->
+
+    <div class="section">
+      <label>صورة الشخص:</label>
+      <input type="file" id="personImage" accept="image/*" />
+    </div>
+
+    <div class="section">
+      <label>معلومات إضافية:</label>
+      <textarea id="additionalInfo" rows="4" placeholder="تفاصيل إضافية..."></textarea>
+    </div>
+
+    <button onclick="submitReport()">إرسال التقرير</button>
+    <div id="confirmation" class="confirmation"></div>
+  </div>
+
+
+
+<footer style="text-align: center; font-size: 12px; color: #aaa; margin-top: 30px;">
+    Developed by Noureldin
+</footer>
+
+
+
+</body>
+</html>
